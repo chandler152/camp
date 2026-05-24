@@ -8,11 +8,19 @@
       content="個人作品集 — 前端開發與 UI 設計"
     />
     <title>你的名字 | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Syne:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
   </head>
   <body>
     <!-- 可替換：網站標題、導覽文案、各區塊內容與連結 -->
+
+    <div class="cursor" id="cursor" aria-hidden="true"></div>
 
     <a class="skip-link" href="#main">跳至主要內容</a>
 
@@ -34,11 +42,11 @@
 
         <nav class="site-nav" id="site-nav" aria-label="主要導覽">
           <ul class="nav-list">
-            <li><a href="#about">關於</a></li>
-            <li><a href="#projects">作品</a></li>
-            <li><a href="#skills">技能</a></li>
-            <li><a href="#experience">經歷</a></li>
-            <li><a href="#footer">聯絡</a></li>
+            <li><a href="#about"><span class="nav-index">01</span>關於</a></li>
+            <li><a href="#projects"><span class="nav-index">02</span>作品</a></li>
+            <li><a href="#skills"><span class="nav-index">03</span>技能</a></li>
+            <li><a href="#experience"><span class="nav-index">04</span>經歷</a></li>
+            <li><a href="#footer"><span class="nav-index">05</span>聯絡</a></li>
           </ul>
         </nav>
 
@@ -52,55 +60,74 @@
     </header>
 
     <main id="main">
-      <section id="hero" class="hero section">
-        <div class="hero-inner reveal">
-          <p class="eyebrow">Front-end · UI/UX</p>
-          <h1 class="hero-title">你的名字</h1>
-          <p class="hero-slogan">
-            用程式與設計，把複雜變簡單，把想法變成可觸及的體驗。
+      <section id="hero" class="hero">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-inner">
+          <p class="eyebrow reveal">Front-end · UI/UX</p>
+          <h1 class="hero-title">
+            <span class="hero-line reveal">你的名字</span>
+          </h1>
+          <p class="hero-slogan reveal">
+            用程式與設計，把複雜變簡單，<br />
+            把想法變成可觸及的體驗。
           </p>
         </div>
-        <div class="hero-decoration" aria-hidden="true"></div>
+        <div class="scroll-hint" aria-hidden="true">
+          <span>Scroll</span>
+          <span class="scroll-line"></span>
+        </div>
       </section>
+
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>HTML · CSS · JavaScript · UI/UX · Design Systems ·</span>
+          <span>HTML · CSS · JavaScript · UI/UX · Design Systems ·</span>
+        </div>
+      </div>
 
       <section id="about" class="section section-about">
         <div class="container">
           <header class="section-header reveal">
+            <p class="section-index">01</p>
             <h2>關於我</h2>
             <p class="section-lead">
               簡短介紹你的背景、正在專注的方向，以及你如何看待產品與使用者。
             </p>
           </header>
           <div class="about-grid">
-            <div class="about-card reveal">
+            <article class="about-card reveal">
               <h3>背景</h3>
               <p>
                 我專注於語意化 HTML、可維護的 CSS 與穩健的 JavaScript，
                 喜歡在細節裡打磨質感，讓介面既好看也好用。
               </p>
-            </div>
-            <div class="about-card reveal">
+            </article>
+            <article class="about-card reveal">
               <h3>專業</h3>
               <p>
                 從版型與元件設計到互動與可及性，我習慣以使用者為中心迭代，
                 並與設計、後端協作讓專案順利落地。
               </p>
-            </div>
+            </article>
           </div>
         </div>
       </section>
 
       <section id="projects" class="section section-projects">
-        <div class="container">
+        <div class="container container--wide">
           <header class="section-header reveal">
+            <p class="section-index">02</p>
             <h2>精選作品</h2>
             <p class="section-lead">
-              三個代表性專案；將下方標題、描述與圖片替換為你的真實作品。
+              橫向捲動瀏覽三個代表性專案；將下方內容替換為你的真實作品。
             </p>
           </header>
+        </div>
 
-          <div class="projects-grid">
-            <article class="project-card reveal">
+        <div class="projects-scroll-wrap reveal">
+          <div class="projects-scroll" tabindex="0" aria-label="作品橫向捲動區">
+            <article class="project-card">
+              <div class="project-index">01</div>
               <div
                 class="project-thumb"
                 role="img"
@@ -120,7 +147,8 @@
               </div>
             </article>
 
-            <article class="project-card reveal">
+            <article class="project-card">
+              <div class="project-index">02</div>
               <div
                 class="project-thumb project-thumb--alt"
                 role="img"
@@ -140,7 +168,8 @@
               </div>
             </article>
 
-            <article class="project-card reveal">
+            <article class="project-card">
+              <div class="project-index">03</div>
               <div
                 class="project-thumb project-thumb--alt2"
                 role="img"
@@ -160,24 +189,26 @@
               </div>
             </article>
           </div>
+          <p class="scroll-note" aria-hidden="true">← 拖曳或捲動 →</p>
         </div>
       </section>
 
       <section id="skills" class="section section-skills">
         <div class="container">
           <header class="section-header reveal">
+            <p class="section-index">03</p>
             <h2>技能</h2>
             <p class="section-lead">
               我擅長的技術棧與工具；可依你的履歷調整項目與排序。
             </p>
           </header>
-          <ul class="skills-grid">
-            <li class="skill-item reveal">HTML</li>
-            <li class="skill-item reveal">CSS</li>
-            <li class="skill-item reveal">JavaScript</li>
-            <li class="skill-item reveal">Python</li>
-            <li class="skill-item reveal">Git</li>
-            <li class="skill-item reveal">Figma</li>
+          <ul class="skills-list">
+            <li class="skill-item reveal"><span>HTML</span></li>
+            <li class="skill-item reveal"><span>CSS</span></li>
+            <li class="skill-item reveal"><span>JavaScript</span></li>
+            <li class="skill-item reveal"><span>Python</span></li>
+            <li class="skill-item reveal"><span>Git</span></li>
+            <li class="skill-item reveal"><span>Figma</span></li>
           </ul>
         </div>
       </section>
@@ -185,6 +216,7 @@
       <section id="experience" class="section section-experience">
         <div class="container">
           <header class="section-header reveal">
+            <p class="section-index">04</p>
             <h2>經歷</h2>
             <p class="section-lead">
               比賽、檢定與活動紀錄；請替換為你的真實項目與日期。
@@ -192,9 +224,7 @@
           </header>
           <ul class="timeline">
             <li class="timeline-item reveal">
-              <time class="timeline-date" datetime="2024-05"
-                >2024 · 五月</time
-              >
+              <time class="timeline-date" datetime="2024-05">2024 · 五月</time>
               <div class="timeline-body">
                 <h3>全國網頁設計競賽 · 佳作</h3>
                 <p>
@@ -216,9 +246,7 @@
               </div>
             </li>
             <li class="timeline-item reveal">
-              <time class="timeline-date" datetime="2023-03"
-                >2023 · 三月</time
-              >
+              <time class="timeline-date" datetime="2023-03">2023 · 三月</time>
               <div class="timeline-body">
                 <h3>校園黑客松 · 參與</h3>
                 <p>
@@ -232,9 +260,10 @@
       </section>
     </main>
 
-    <footer id="footer" class="site-footer section">
+    <footer id="footer" class="site-footer">
       <div class="container footer-inner reveal">
         <div class="footer-brand">
+          <p class="section-index">05</p>
           <p class="footer-name">你的名字</p>
           <p class="footer-tagline">持續學習 · 實作 · 分享</p>
         </div>
